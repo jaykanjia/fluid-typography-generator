@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--large-font: clamp(1.5rem, 1.25vw + 1.25rem, 2.25rem);
+		---semi-large-font: clamp(1.25rem, 0.42vw + 1.17rem, 1.5rem);
+		--reg-font: clamp(1rem, 0.42vw + 0.92rem, 1.25rem);
+	}
+
+	body {
+		@apply bg-[#0A0A33] text-slate-200;
+		font-size: var(--reg-font);
+	}
+	h1 {
+		font-size: var(--large-font);
+		@apply before:block before:absolute before:-z-10 before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block;
+	}
+	label {
+		font-size: var(--reg-font);
+	}
+	input {
+		@apply bg-pink-600 text-white rounded-md border-0 shadow-sm ring-1 ring-inset outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 ring-pink-400 shadow-pink-400 sm:leading-6 px-4 py-2;
+	}
+	input[type="number"] {
+		@apply w-[125px];
+		font-size: var(--semi-large-font);
+	}
+	input#output {
+		@apply text-sm;
+	}
+}
+
+@layer components {
+	.heading {
+		font-size: var(--large-font);
+	}
+	.semi-large {
+		font-size: var(---semi-large-font);
+	}
+	.btn {
+		@apply flex items-center gap-2 rounded-md justify-center max-sm:w-1/2 bg-pink-600 px-4 py-2 font-semibold leading-6 text-white shadow-sm hover:bg-pink-500;
+	}
+	.input_container {
+		@apply flex flex-col gap-4 max-w-sm mx-auto py-10;
+	}
+	.input_row {
+		@apply flex gap-4 items-center;
+		& > label {
+			@apply flex-1;
+		}
+	}
+}
